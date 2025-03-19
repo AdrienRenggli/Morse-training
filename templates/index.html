@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratique du Code Morse</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="practice-container">
+        <h1>Pratique du Code Morse</h1>
+        <div id="practice-question">
+            {% if practice.type == "text_to_morse" %}
+                <p>Traduire ce texte en Morse: {{ practice.text }}</p>
+            {% else %}
+                <p>Traduire ce code Morse en texte: {{ practice.morse }}</p>
+            {% endif %}
+        </div>
+        <input type="text" id="user-input" placeholder="Votre réponse">
+        <button id="submit-btn">Vérifier</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', checkAnswer);
+        document.getElementById('user-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+
+        function checkAnswer() {
+            const userInput = document.getElementById('user-input').value.trim();
+            const practiceType = "{{ practice.type }}";
+            const correctAnswer = "{{ practice.morse if practice.type == 'text_to_morse' else practice.text }}";
+
+            if (userInput === "") {
+                document.getElementById('result').innerText = `La réponse correcte est: ${correctAnswer}`;
+                setTimeout(function() {
+                    location.reload();
+                }, 4000);
+            } else {
+                fetch('/check', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        type: practiceType,
+                        input: userInput,
+                        answer: correctAnswer
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerText = data.result;
+                    if (data.result === "Correct!") {
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1000);
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
