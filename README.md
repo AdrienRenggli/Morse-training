@@ -21,3 +21,9 @@ Cette application web permet de pratiquer la traduction du code Morse. Elle prop
    ```bash
    git clone https://github.com/AdrienRenggli/Morse-training.git
    cd Morse-training
+
+## Exécution
+
+1. Exécutez la commande suivante dans ce répertoire :
+    ```bash
+    python app.py
