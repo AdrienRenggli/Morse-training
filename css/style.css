@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+    max-width: 600px;
+    margin: auto;
+    background: #f9f9f9;
+}
+h1 {
+    text-align: center;
+}
+#question {
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+input {
+    width: 100%;
+    font-size: 1.2em;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1em;
+    margin-right: 10px;
+    height: 50px;
+}
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+#result {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 1rem;
+    min-height: 2em;
+}
