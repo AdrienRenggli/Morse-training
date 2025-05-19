@@ -36,3 +36,9 @@ button {
     margin-top: 1rem;
     min-height: 2em;
 }
+
+footer {
+    margin-top: 2rem; 
+    text-align: center; 
+    font-size: 0.9em;
+}
