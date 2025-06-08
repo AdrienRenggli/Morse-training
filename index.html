@@ -1,35 +1,36 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
-    <title>Pratique du Code Morse</title>
+    <title>Morse code practice</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
 
-    <h1>Pratique du Code Morse</h1>
+    <h1>Morse code practice</h1>
 
     <div id="question"></div>
-    <input type="text" id="answer" placeholder="Tapez votre réponse ici...">
+    <input type="text" id="answer" placeholder="Write your answer here...">
     <br>
     <div class="button-group">
-        <button onclick="checkAnswer()">Vérifier</button>
-        <button onclick="playMorse()">🔊 Écouter</button>
+        <button onclick="checkAnswer()">Check</button>
+        <button onclick="playMorse()">🔊 Listen</button>
     </div>
     <div id="result"></div>
 
     <hr>
 
     <section>
-        <h2>📝 Traduction</h2>
-        <textarea id="translation-input" rows="3" style="width:100%" placeholder="Texte ou code Morse..."></textarea>
+        <h2>📝 Translation</h2>
+        <textarea id="translation-input" rows="3" style="width:100%" placeholder="Text or Morse code..."></textarea>
         <br>
         <div class="button-group">
-            <button onclick="translateToMorse()">Texte → Morse</button>
-            <button onclick="translateToText()">Morse → Texte</button>
+            <button onclick="translateToMorse()">Text → Morse</button>
+            <button onclick="translateToText()">Morse → Text</button>
             <button id="play-translated-morse" onclick="playTranslatedMorse()" style="display: none;">
-                🔊 Écouter le Morse
+                🔊 Listen to Morse
             </button> 
         </div>
         <div id="translation-output" style="margin-top: 1rem; font-family: monospace;"></div>
@@ -38,9 +39,9 @@
     <script src="js/script.js"></script>
 
     <footer>
-    <p>👨‍💻 Vous souhaitez voir comment cela fonctionne ? 
+    <p>👨‍💻 Want to see how it works? 
         <a href="https://github.com/AdrienRenggli/Morse-training" target="_blank">
-            Consultez le code source sur GitHub.
+            Check out the source code on GitHub.
         </a>
     </p>
 </footer>

@@ -31,8 +31,8 @@ function getRandomQuestion() {
     }
     document.getElementById('question').innerText =
         current.type === "letter"
-            ? `Traduire cette lettre en Morse : ${current.question}`
-            : `Traduire ce code Morse en lettre : ${current.question}`;
+            ? `Translate this character in Morse : ${current.question}`
+            : `Translate this Morse in a character : ${current.question}`;
     document.getElementById('result').innerText = "";
     document.getElementById('answer').value = "";
 }
@@ -40,14 +40,14 @@ function getRandomQuestion() {
 function checkAnswer() {
     const input = document.getElementById('answer').value.trim();
     if (input === "") {
-        document.getElementById('result').innerText = `⛔ La réponse correcte était : ${current.answer}`;
+        document.getElementById('result').innerText = `⛔ The correct answer was : ${current.answer}`;
     } else if (
         input.toUpperCase() === current.answer.toUpperCase()
     ) {
         document.getElementById('result').innerText = "✅ Correct !";
         setTimeout(nextQuestion, 1000);
     } else {
-        document.getElementById('result').innerText = "❌ Faux. Essayez encore.";
+        document.getElementById('result').innerText = "❌ Wrong. Try again.";
     }
 }
 
@@ -118,7 +118,7 @@ function translateToText() {
 function playTranslatedMorse() {
     const morse = document.getElementById('translation-output').innerText.trim();
     if (!morse || morse === '?') {
-        alert("Aucun code Morse à jouer.");
+        alert("No morse code to play.");
         return;
     }
 
@@ -146,7 +146,7 @@ getRandomQuestion();
 
 document.getElementById('answer').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
-        event.preventDefault(); // Empêche la soumission de formulaire par défaut si c'était un <form>
-        checkAnswer(); // Appelle ta fonction de vérification
+        event.preventDefault();
+        checkAnswer();
     }
 });
